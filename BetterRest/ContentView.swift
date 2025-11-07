@@ -13,6 +13,7 @@ struct ContentView: View {
     var body: some View {
         Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 4...12, step: 0.25)
         DatePicker("Choose a date", selection: $wakeUp).labelsHidden()
+        Text(Date.now, format: .dateTime.day().month().year())
     }
     func exampleDates() {
        /* var components = DateComponents()
@@ -20,6 +21,8 @@ struct ContentView: View {
         components.minute = 0
         let date = Calendar.current.date(from: components) ?? .now*/
         let components = Calendar.current.dateComponents([.hour, .minute], from: .now)
+        let hour = components.hour ?? 0
+        let minute = components.minute ?? 0
     }
 }
 
