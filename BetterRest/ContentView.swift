@@ -15,11 +15,11 @@ struct ContentView: View {
         DatePicker("Choose a date", selection: $wakeUp).labelsHidden()
     }
     func exampleDates() {
-        // create a second Date instance set to one day in seconds from now
-        let tomorrow = Date.now.addingTimeInterval(86400)
-
-        // create a range from those two
-        let range = Date.now...tomorrow
+       /* var components = DateComponents()
+        components.hour = 8
+        components.minute = 0
+        let date = Calendar.current.date(from: components) ?? .now*/
+        let components = Calendar.current.dateComponents([.hour, .minute], from: .now)
     }
 }
 
