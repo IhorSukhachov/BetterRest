@@ -44,7 +44,13 @@ struct ContentView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     Text("Daily cofee intake")
                         .font(.headline)
-                    Stepper("^[\(coffeeAmount) cup(s)](inflect: true)", value: $coffeeAmount, in: 1...20, step: 1)
+                //    Stepper("^[\(coffeeAmount) cup(s)](inflect: true)", value: $coffeeAmount, in: 1...20, step: 1)
+                  
+                    Picker("^[\(coffeeAmount) cup](inflect: true)", selection: $coffeeAmount){
+                        ForEach(0..<21) {
+                            Text($0, format: .number)
+                        }
+                    }
                 }
               } 
             .navigationTitle("Better Rest")
